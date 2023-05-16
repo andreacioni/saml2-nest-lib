@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf ./lib/",
+    "postbuild": "cp package.json lib/package.json",
     "build": "tsc -p tsconfig.json",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"libs/**/*.ts\"",
     "start": "nest start",
@@ -74,8 +75,5 @@
     "roots": [
       "<rootDir>/src/"
     ]
-  },
-  "files": [
-    "lib/"
-  ]
+  }
 }
