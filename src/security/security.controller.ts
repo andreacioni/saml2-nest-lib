@@ -5,9 +5,9 @@ import {
   Request,
   Get,
   Response,
+  Header,
 } from '@nestjs/common';
 import { resolve } from 'path';
-import express from 'express';
 import { SecurityService } from './security.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { SamlAuthGuard } from './saml-auth.guard';
@@ -48,10 +48,10 @@ export class SecurityController {
   }
 
   @Get('api/auth/sso/saml/metadata')
-  async getSpMetadata(@Response() res: express.Response) {
+  @Header('Content-Type', 'application/xml')
+  async getSpMetadata(@Response() res: any) {
     Logger.debug('generating metadata');
     const ret = this.samlStrategy.generateServiceProviderMetadata(null, null);
-    res.type('application/xml');
-    res.send(ret);
+    return ret;
   }
 }
