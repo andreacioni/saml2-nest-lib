@@ -1,11 +1,11 @@
 {
   "name": "@andreacioni/saml2-nest-lib",
-  "version": "0.0.7-0",
+  "version": "0.0.12-beta.8",
   "description": "",
   "author": "",
   "license": "UNLICENSED",
   "scripts": {
-    "prebuild": "rimraf ./lib/",
+    "prebuild": "rimraf ./lib/ *.tgz",
     "postbuild": "cp package.json lib/package.json",
     "build": "tsc -p tsconfig.json",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"libs/**/*.ts\"",
@@ -21,15 +21,16 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@andreacioni/saml2-nest-lib": "0.0.6",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
-    "@nestjs/passport": "^9.0.0",
     "@nestjs/jwt": "^9.0.0",
-    "@nestjs/testing": "^9.0.0",
+    "@nestjs/passport": "^9.0.0",
     "@nestjs/platform-fastify": "^9.4.1",
+    "@nestjs/testing": "^9.0.0",
+    "@node-saml/passport-saml": "^4.0.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",
-    "passport-saml": "^3.2.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
   },

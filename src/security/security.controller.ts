@@ -49,9 +49,8 @@ export class SecurityController {
 
   @Get('api/auth/sso/saml/metadata')
   @Header('Content-Type', 'application/xml')
-  async getSpMetadata(@Response() res: any) {
+  async getSpMetadata() {
     Logger.debug('generating metadata');
-    const ret = this.samlStrategy.generateServiceProviderMetadata(null, null);
-    return ret;
+    return this.samlStrategy.generateServiceProviderMetadata(null, null);
   }
 }
